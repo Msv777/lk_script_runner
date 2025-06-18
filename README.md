@@ -1,4 +1,6 @@
 # LK Script Runner
+## 来源
+原始插件来自 [Blender Artists 论坛](https://blenderartists.org/t/script-runner-addon/1481368)，由 Ludvik Koutny 创建,由于其Artstation 和 Gumroad似乎不可用了,这里这个版本修复了一些问题.
 
 ## 简介
 LK Script Runner 是一个 Blender 插件，允许您从便捷的菜单中运行文本编辑器脚本。通过简单的快捷键 Ctrl+R，您可以访问所有可用脚本并快速执行它们。
@@ -29,13 +31,12 @@ LK Script Runner 是一个 Blender 插件，允许您从便捷的菜单中运行
 - 在 Blender 3.6 中测试过
 - 应该可以在 Blender 4.0 中工作，但尚未完全测试
 
-## 来源
-原始插件来自 [Blender Artists 论坛](https://blenderartists.org/t/script-runner-addon/1481368)，由 Ludvik Koutny 创建，Msv 修改。
 
 ---
 
 # LK Script Runner
-
+## Source
+Original addon from [Blender Artists forum](https://blenderartists.org/t/script-runner-addon/1481368), created by Ludvik Koutny.Due to the apparent unavailability of the original Artstation and Gumroad, this version has fixed some issues and uploaded to github.
 ## Introduction
 LK Script Runner is a Blender addon that allows you to run Text Editor scripts from a convenient menu. With a simple shortcut Ctrl+R, you can access all available scripts and execute them quickly.
 
@@ -65,5 +66,4 @@ You can set a global scripts folder in the addon preferences. All .py files plac
 - Tested in Blender 3.6
 - Should work in Blender 4.0, but not fully tested
 
-## Source
-Original addon from [Blender Artists forum](https://blenderartists.org/t/script-runner-addon/1481368), created by Ludvik Koutny and modified by Msv.
+
