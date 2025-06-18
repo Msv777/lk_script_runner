@@ -9,7 +9,7 @@ import json
 bl_info = {
     "name": "LK Script Runner",
     "description": "A tool to run Text Editor scripts from a menu",
-    "author": "Ludvik Koutny",
+    "author": "Ludvik Koutny,Modified by Msv",
     "version": (1, 0, 0),
     "blender": (3, 6, 0),
     "category": "Development"
@@ -60,22 +60,21 @@ class LK_SCRIPT_RUNNER_OT_run_script(bpy.types.Operator):
 
     def execute(self, context):
         if not self.is_global_script:
-            # Run the script from Blender's text datablock
             script = bpy.data.texts.get(self.script)
             if script:
-                exec(script.as_string())  # pylint: disable=exec-used
+                #modified by Msv: Resolve the issue of nested functions not executing and solve the problem of if __name__=='__main__ 'not executing
+                exec_namespace = {'__name__': '__main__'}
+                exec(script.as_string(), exec_namespace, exec_namespace)  # pylint: disable=exec-used
             else:
                 self.report({'ERROR'}, f"No datablock named {self.script} found.")
         else:
-            # Get the full path to the script file
             global_scripts_path = bpy.context.preferences.addons[__package__].preferences.global_scripts_path
             full_script_path = os.path.join(global_scripts_path, self.script)
-
-            # Run the script from a file
             try:
                 with open(full_script_path, 'r', encoding='utf-8') as file:
                     script_content = file.read()
-                exec(script_content)  # pylint: disable=exec-used
+                exec_namespace = {'__name__': '__main__'}
+                exec(script_content, exec_namespace, exec_namespace)  # pylint: disable=exec-used
             except FileNotFoundError:
                 self.report({'ERROR'}, f"No file named {self.script} found.")
 
